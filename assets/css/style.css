@@ -3,10 +3,10 @@
    - NO se modifica la paleta original
    ============================================================= */
 :root {
-  --primer-color: #799EFF;
-  --segundo-color: #FEFFC4;
-  --tercero-color: #FFDE63;
-  --cuarto-color: #FFBC4C;
+  --primer-color: #799eff;
+  --segundo-color: #feffc4;
+  --tercero-color: #ffde63;
+  --cuarto-color: #ffbc4c;
 }
 
 /* =============================================================
@@ -21,31 +21,67 @@
   --gap-3: 16px;
 
   /* Derivados con color-mix entre tus colores */
-  --bg-elevated: color-mix(in oklab, var(--segundo-color) 90%, var(--tercero-color) 10%);
-  --border-color: color-mix(in oklab, var(--cuarto-color) 30%, var(--segundo-color) 70%);
-  --btn-hover: color-mix(in oklab, var(--primer-color) 85%, var(--tercero-color) 15%);
-  --focus: color-mix(in oklab, var(--primer-color) 55%, var(--tercero-color) 45%);
-  --muted: color-mix(in oklab, var(--cuarto-color) 40%, var(--segundo-color) 60%);
+  --bg-elevated: color-mix(
+    in oklab,
+    var(--segundo-color) 90%,
+    var(--tercero-color) 10%
+  );
+  --border-color: color-mix(
+    in oklab,
+    var(--cuarto-color) 30%,
+    var(--segundo-color) 70%
+  );
+  --btn-hover: color-mix(
+    in oklab,
+    var(--primer-color) 85%,
+    var(--tercero-color) 15%
+  );
+  --focus: color-mix(
+    in oklab,
+    var(--primer-color) 55%,
+    var(--tercero-color) 45%
+  );
+  --muted: color-mix(
+    in oklab,
+    var(--cuarto-color) 40%,
+    var(--segundo-color) 60%
+  );
 
   /* Nuevo: color de texto principal derivado para buena legibilidad */
-  --text-color: color-mix(in oklab, var(--cuarto-color) 60%, var(--primer-color) 40%);
+  --text-color: color-mix(
+    in oklab,
+    var(--cuarto-color) 60%,
+    var(--primer-color) 40%
+  );
 
   /* Solicitud: color específico para el botón Añadir */
-  --btn-add: #5B65C8; /* morado solicitado */
-  --btn-add-contrast: #FFFFFF; /* contraste en el botón de añadir */
+  --btn-add: #5b65c8; /* morado solicitado */
+  --btn-add-contrast: #ffffff; /* contraste en el botón de añadir */
   /* Texto fuerte (negro) solicitado para items y botones eliminar */
   --text-strong: #000000;
 
   /* Nuevas: mejor legibilidad de input/placeholder */
-  --input-text: color-mix(in oklab, var(--text-strong) 85%, var(--segundo-color) 15%);
-  --placeholder-color: color-mix(in oklab, var(--text-strong) 60%, var(--segundo-color) 40%);
+  --input-text: color-mix(
+    in oklab,
+    var(--text-strong) 85%,
+    var(--segundo-color) 15%
+  );
+  --placeholder-color: color-mix(
+    in oklab,
+    var(--text-strong) 60%,
+    var(--segundo-color) 40%
+  );
 
   /* Tamaño de iconos para acciones */
   --icon-size: 16px;
 
   /* Tono rojo-crema para hover de eliminar */
   --danger: #d43245; /* rojo frambuesa */
-  --danger-cream: color-mix(in oklab, var(--danger) 60%, var(--segundo-color) 40%);
+  --danger-cream: color-mix(
+    in oklab,
+    var(--danger) 60%,
+    var(--segundo-color) 40%
+  );
 }
 
 /* =============================================================
@@ -53,7 +89,10 @@
    - Objetivo ancho 380–420px y alto mínimo ~520px
    - Tipografía de sistema
    ============================================================= */
-html, body { height: 100%; }
+html,
+body {
+  height: 100%;
+}
 
 body {
   margin: 0;
@@ -61,7 +100,8 @@ body {
   background: var(--primer-color);
   /* Texto principal derivado para legibilidad sobre fondos claros */
   color: var(--text-color);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
   width: clamp(380px, 92vw, 820px);
   min-height: 720px;
   max-height: 800px;
@@ -88,14 +128,40 @@ body {
   display: flex;
   align-items: center;
   gap: var(--gap-2);
-  /* Fondo completo en color cuarto (naranja) */
-  background: var(--cuarto-color);
+  /* Fondo del header con leve gradiente derivado */
+  background: linear-gradient(
+    90deg,
+    color-mix(in oklab, var(--cuarto-color) 92%, var(--tercero-color) 8%),
+    color-mix(in oklab, var(--cuarto-color) 80%, var(--tercero-color) 20%)
+  );
   padding: var(--gap-2);
   border-radius: var(--radius);
   width: 100%;
+  position: relative;
 }
-.header__icon { width: 30px; height: 30px; opacity: 0.9; }
-.header__title { margin: 0; font-size: 1rem; font-weight: 600; color: var(--text-strong); }
+.header__icon {
+  width: 30px;
+  height: 30px;
+  opacity: 0.9;
+}
+.header__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  color: var(--text-strong);
+  background: color-mix(in oklab, var(--segundo-color) 85%, var(--cuarto-color) 15%);
+  padding: 6px 12px;
+  border-radius: calc(var(--radius) - 6px);
+  /* Sombra convertida en "línea" inferior + sombra suave */
+  box-shadow:
+    0 5px 0 color-mix(in oklab, var(--primer-color) 25%, var(--cuarto-color) 75%),
+    6px 8px 14px color-mix(in oklab, var(--text-strong) 12%, transparent);
+  position: relative;
+}
+
+/* Eliminamos la pseudo-línea: ahora la "línea" inferior es el box-shadow */
+.header__title::after { content: none; }
 
 /* Marco para el título en color cuarto */
 /* El fondo ahora lo lleva .header para ocupar todo el ancho */
@@ -146,14 +212,26 @@ button[type="submit"] {
   /* Botón Añadir con color solicitado */
   background: var(--btn-add);
   color: var(--btn-add-contrast);
-  transition: transform .05s ease, background-color .2s ease, box-shadow .2s ease;
-  box-shadow: 0 1px 2px color-mix(in oklab, var(--cuarto-color) 25%, transparent);
+  transition: transform 0.05s ease, background-color 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 1px 2px
+    color-mix(in oklab, var(--cuarto-color) 25%, transparent);
 }
 
-button[type="submit"]:hover { background: color-mix(in oklab, var(--btn-add) 88%, white 12%); }
-button[type="submit"]:active { transform: translateY(0.5px); }
-button[type="submit"]:focus-visible { outline: 2px solid color-mix(in oklab, var(--btn-add) 55%, white 45%); outline-offset: 2px; }
-button[disabled] { opacity: .6; cursor: not-allowed; }
+button[type="submit"]:hover {
+  background: color-mix(in oklab, var(--btn-add) 88%, white 12%);
+}
+button[type="submit"]:active {
+  transform: translateY(0.5px);
+}
+button[type="submit"]:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--btn-add) 55%, white 45%);
+  outline-offset: 2px;
+}
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 
 /* =============================================================
    Lista de tareas (respetando #listaTareas)
@@ -165,13 +243,14 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   /* Contenedor de la lista con fondo del tercer color */
   background: var(--tercero-color);
   padding: var(--gap-2);
-  display: grid;
+  display: flex; /* lista vertical, evita estirar un único item */
+  flex-direction: column;
   gap: var(--gap-2);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  /* Permite que la lista sea la zona scroll y no tape el footer */
+  /* Solo scrollea la lista; el footer queda visible */
   overflow: auto;
-  min-height: 0; /* necesario para que 1fr permita contraerse y habilite el scroll interno */
+  min-height: 0; /* importante para contenedores grid/popup */
 }
 
 /* Footer del popup: discreto y con el tono del botón Añadir */
@@ -181,6 +260,8 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   color: var(--btn-add-contrast);
   border-radius: var(--radius);
   padding: 6px 10px;
+  margin-left: 25px;
+  margin-right: 25px;
   text-align: center;
   font-size: 12px;
   position: sticky;
@@ -195,19 +276,21 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   text-underline-offset: 2px;
 }
 
-.footer a:hover { text-decoration-thickness: 2px; }
+.footer a:hover {
+  text-decoration-thickness: 2px;
+}
 
 #listaTareas li {
-  display: flex;
-  align-items: flex-start; /* el botón se puede centrar por item */
+  display: flex; /* altura natural */
+  align-items: center; /* centrado vertical en 1 línea */
   justify-content: space-between;
   gap: var(--gap-2);
   /* Cada item con el segundo color */
   background: var(--segundo-color);
   border: 1px solid var(--border-color);
   border-radius: var(--radius);
-  padding: 8px 12px; /* más compacto en items de una línea */
-  line-height: 1.25;  /* coherente entre una y múltiples líneas */
+  padding: 6px 12px; /* compacto */
+  line-height: 1.2;
   color: var(--text-strong); /* texto negro en items */
   /* Permitir que textos largos envuelvan en varias líneas */
   white-space: normal;
@@ -215,12 +298,16 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   word-break: break-word;
 }
 
-#listaTareas li:focus-within { outline: 2px solid var(--focus); outline-offset: 2px; }
+#listaTareas li:focus-within {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
 
 #listaTareas li button {
   /* Botón eliminar destacado en color cuarto */
   background-color: var(--cuarto-color);
-  border: 1px solid color-mix(in oklab, var(--cuarto-color) 60%, var(--tercero-color) 40%);
+  border: 1px solid
+    color-mix(in oklab, var(--cuarto-color) 60%, var(--tercero-color) 40%);
   color: var(--text-strong); /* texto del botón eliminar en negro */
   padding: 6px 10px;
   border-radius: calc(var(--radius) - 4px);
@@ -229,16 +316,20 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   display: inline-flex;
   align-items: center;
   gap: 0; /* el icono va como background, no necesitamos separación extra */
-  margin-left: auto;     /* mantener el botón a la derecha */
-  flex-shrink: 0;        /* evitar que el botón se comprima */
-  align-self: center;    /* centrar verticalmente respecto al li */
+  margin-left: auto; /* mantener el botón a la derecha */
+  flex-shrink: 0; /* evitar que el botón se comprima */
+  flex: 0 0 auto; /* y que no crezca ni se estire */
+  align-self: center; /* centrar verticalmente respecto al li */
 
   /* Icono como background para controlar perfectamente el espacio */
-  background-image: url("../img/minimalist trash.png"), url("../img/minimalist trash.png");
+  background-image: url("../img/minimalist trash.png"),
+    url("../img/minimalist trash.png");
   background-repeat: no-repeat;
   background-position: 10px center;
   background-size: var(--icon-size) var(--icon-size);
-  padding-left: calc(10px + var(--icon-size) + 6px); /* icono + margen interno */
+  padding-left: calc(
+    10px + var(--icon-size) + 6px
+  ); /* icono + margen interno */
   white-space: nowrap; /* etiqueta en una sola línea */
 }
 
@@ -248,18 +339,29 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
    - Ruta relativa desde assets/css/ → ../img/
 */
 /* Eliminamos el pseudo-elemento: el icono ahora es fondo del botón */
-#listaTareas li button::before { content: none; }
+#listaTareas li button::before {
+  content: none;
+}
 
 /* Restaurar color del primer carácter ahora que el texto no incluye emoji */
-#listaTareas li button::first-letter { color: inherit; }
+#listaTareas li button::first-letter {
+  color: inherit;
+}
 
 #listaTareas li button:hover {
   /* Cambiamos solo el color de fondo para no borrar el background-image */
   background-color: var(--danger-cream);
-  border-color: color-mix(in oklab, var(--danger) 60%, var(--tercero-color) 40%);
+  border-color: color-mix(
+    in oklab,
+    var(--danger) 60%,
+    var(--tercero-color) 40%
+  );
 }
 
-#listaTareas li button:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+#listaTareas li button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
 
 /* =============================================================
    Utilidad accesible: texto solo para lectores de pantalla
@@ -271,7 +373,7 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }
@@ -280,7 +382,10 @@ button[disabled] { opacity: .6; cursor: not-allowed; }
    Preferencias del usuario
    ============================================================= */
 @media (prefers-reduced-motion: reduce) {
-  * { animation: none !important; transition: none !important; }
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
 }
 
 /* =============================================================
