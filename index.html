@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista de tareas</title>
+    <!-- Icono del popup (opcional en el HTML del popup) -->
+    <link rel="icon" href="assets/img/list-svgrepo-com.svg">
+    <!-- Estilos: solo archivo local -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- JS: sin inline, respetando tu lógica y selectores -->
+    <script defer src="assets/js/script.js"></script>
+  </head>
+  <body>
+    <main class="popup" role="main">
+      <header class="header">
+        <img class="header__icon" src="assets/img/list-svgrepo-com.svg" alt="" aria-hidden="true">
+        <h1 class="header__title">Lista de tareas</h1>
+      </header>
+
+      <!-- Manteniendo IDs usados por tu JS -->
+      <!-- Etiqueta accesible oculta para el input -->
+      <form id="formTarea" aria-describedby="ayudaNombreTarea">
+        <label for="nombreTarea" class="sr-only">Nueva tarea</label>
+        <input
+          id="nombreTarea"
+          name="nombreTarea"
+          type="text"
+          placeholder="Escribe una tarea"
+          inputmode="text"
+          autocomplete="off"
+        >
+        <button type="submit" title="Añadir tarea" aria-label="Añadir tarea">Añadir</button>
+        <p id="ayudaNombreTarea" class="sr-only">Escribe el nombre de la tarea y pulsa “Añadir”.</p>
+      </form>
+
+      <!-- Región de anuncios accesibles (opcional, por si la usas después desde JS) -->
+      <div class="sr-only" id="liveRegion" aria-live="polite"></div>
+
+      <ul id="listaTareas"></ul>
+
+      <!-- Footer fijo al final del popup -->
+      <footer class="footer" role="contentinfo">
+        <small>
+          Hecho por  
+          <a href="https://alonsovine.github.io/portfolio/" target="_blank" rel="noopener noreferrer">Alonso Viñé</a>
+        </small>
+      </footer>
+    </main>
+  </body>
+  </html>
