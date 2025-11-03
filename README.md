@@ -1,3 +1,5 @@
+![IMG](assets/img/img_readme.png "imagen extensión")
+
 # 📝 Lista de tareas — Extensión Chrome (MV3)
 
 Popup compacto para añadir y gestionar tareas al vuelo. Sin cuentas. Hecho en HTML/CSS/JS (Manifest V3) y usando `localStorage` para persistencia.
