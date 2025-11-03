@@ -2,13 +2,13 @@
   "manifest_version": 3,
   "name": "Lista de tareas",
   "short_name": "Lista tareas",
-  "description": "Extensión en forma de popup para añadir y gestionar una lista sencilla de tareas.",
+  "description": "Extensi\u00F3n en forma de popup para a\u00F1adir y gestionar una lista sencilla de tareas.",
   "version": "1.0.0",
   "version_name": "1.0.0 - Popup lista de tareas",
-  "author": "Alonso Viñé Barrancos (LinkedIn: https://www.linkedin.com/in/alonso-vi%C3%B1%C3%A9-barrancos)",
+  "author": "Alonso Vi\u00F1\u00E9 Barrancos (LinkedIn: https://www.linkedin.com/in/alonso-vi%C3%B1%C3%A9-barrancos)",
   "homepage_url": "https://alonsovine.github.io/portfolio/",
   "action": {
-    "default_title": "Lista de tareas — abrir popup",
+    "default_title": "Lista de tareas \u2014 abrir popup",
     "default_popup": "index.html",
     "default_icon": {
       "16": "assets/img/icon16.png",
